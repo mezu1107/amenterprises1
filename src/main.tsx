@@ -1,19 +1,18 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 import Preloader from "./components/Preloader";
 
 const Root = () => {
   const [loaded, setLoaded] = useState(false);
 
-  return (
-    <>
-      {!loaded && <Preloader onLoaded={() => setLoaded(true)} />}
-      {loaded && <App />}
-    </>
-  );
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 2200); // match preloader duration
+    return () => clearTimeout(timer);
+  }, []);
+
+  return <>{!loaded ? <Preloader /> : <App />}</>;
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -21,5 +20,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Root />
   </React.StrictMode>
 );
-
-createRoot(document.getElementById("root")!).render(<App />);
