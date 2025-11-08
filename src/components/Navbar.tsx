@@ -53,7 +53,7 @@ const Navbar = () => {
               <img src={logo} alt="AM Enterprises Logo" className="h-14 w-14 rounded-full object-cover" />
               <div className="block">
                 <h1 className="font-bold text-xl text-foreground">AM Enterprises</h1>
-                <p className="text-xs text-muted-foreground">360° Digital Agency</p>
+                <p className="text-xs text-muted-foreground">360° Digital Marketing Agency</p>
               </div>
             </motion.div>
           </Link>
